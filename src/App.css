@@ -1,0 +1,164 @@
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 20px 16px calc(24px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  margin-bottom: 20px;
+}
+
+.logo-slot {
+  width: 220px;
+  height: 88px;
+  margin-bottom: 12px;
+  border: 1px solid #c8c0b4;
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.logo-slot img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.logo-placeholder {
+  color: #5c574e;
+  font-size: 0.85rem;
+}
+
+.intro {
+  margin: 0;
+  color: #5c574e;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+h1 {
+  margin: 0 0 6px;
+  font-size: 1.6rem;
+}
+
+.hint {
+  margin: 0 0 12px;
+  color: #5c574e;
+  font-size: 0.95rem;
+}
+
+.docs-link {
+  margin: 0 0 20px;
+}
+
+.docs-link a {
+  color: #1f6f4a;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+input,
+select,
+button {
+  min-height: 48px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #c8c0b4;
+  border-radius: 8px;
+  background: #fff;
+  font: inherit;
+  color: inherit;
+}
+
+input[aria-invalid="true"],
+select[aria-invalid="true"] {
+  border-color: #8a2f2f;
+}
+
+.error {
+  color: #8a2f2f;
+  font-size: 0.8rem;
+}
+
+.notice {
+  margin: 0 0 12px;
+  color: #8a2f2f;
+  font-size: 0.9rem;
+}
+
+.notice.success {
+  color: #1f6f4a;
+}
+
+.widget-host {
+  min-height: 480px;
+  width: 100%;
+  border: 1px solid #c8c0b4;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.widget-host[hidden] {
+  display: none;
+}
+
+.page-actions {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+button {
+  border: 0;
+  background: #1f6f4a;
+  color: #fff;
+  font-weight: 600;
+}
+
+button.done {
+  background: #8a2f2f;
+}
+
+button:disabled {
+  opacity: 0.7;
+}
+
+.closed {
+  margin: auto 0;
+  text-align: center;
+  color: #5c574e;
+}
+
+@media (max-width: 380px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

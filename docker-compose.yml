@@ -1,0 +1,44 @@
+name: jspenrollment
+
+services:
+  jspenrollment-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: jspenrollment-db
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "ContactIntake!2026"
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql-data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'ContactIntake!2026' -C -Q 'SELECT 1' -b || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 45s
+
+  jspenrollment-app:
+    build: .
+    image: jspenrollment:app
+    container_name: jspenrollment-app
+    ports:
+      - "8081:3000"
+    environment:
+      SQL_SERVER: jspenrollment-db
+      SQL_PORT: "1433"
+      SQL_USER: sa
+      SQL_PASSWORD: "ContactIntake!2026"
+      SQL_DATABASE: JSPEnrollment
+      AEROSYNC_API_KEY: ""
+      AEROSYNC_API_SECRET: ""
+      AEROSYNC_AEROPASS_USER_UUID: ""
+      AEROSYNC_CONFIGURATION_ID: ""
+    depends_on:
+      jspenrollment-db:
+        condition: service_healthy
+
+volumes:
+  sql-data:
+    name: mobile-contact-intake_sql-data

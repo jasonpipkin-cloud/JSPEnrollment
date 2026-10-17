@@ -1,0 +1,31 @@
+{
+  "name": "jspenrollment",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "node server.js",
+    "test": "vitest",
+    "test:run": "vitest run --reporter=verbose"
+  },
+  "dependencies": {
+    "aerosync-web-sdk": "^2.2.0",
+    "express": "^4.21.2",
+    "mssql": "^11.0.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.5",
+    "@vitejs/plugin-react": "^4.4.1",
+    "jsdom": "^29.1.1",
+    "supertest": "^7.2.2",
+    "vite": "^6.3.4",
+    "vitest": "^4.1.11"
+  }
+}
